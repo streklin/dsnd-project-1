@@ -1,6 +1,169 @@
 <html>
-    <body>
-        <h1>Defying Neptune</h1>
-        <img src="images/romanship_in_storm.png" />
+    <head>
+        <title>Defying Neptune: An Investigation into Roman Ship Wrecks</title>
+    </head>
+    <body
+        style="font-family: sans-serif; font-size: 18px"
+    >
+        <div style="width: 55%; display: block; margin: auto; padding-bottom: 50px">
+            <h1 style="display: block; width: 100%; text-align: center; margin-bottom: 20px;">Defying Neptune: An Investigation into Roman Ship Wrecks</h1>
+            <h2 style="display: block; width: 100%; text-align: center; margin-bottom: 20px;">Gene Foxwell</h2>
+            <img style="height: 50%; margin: auto; display:block" src="images/romanship_in_storm.png" />
+
+            <div style="margin: 50px 0px;">
+                <h2>Introduction</h2>
+                <hr />
+                <p>
+                    See the world! Join the Navy! It’ll be fun! That’s what our hero – the plucky young Marcus – has heard his entire life. The time has come! His family is powerful, so he has his pick of assignments, but how does he decide which one?
+                </p>
+                <p>
+                    Working on a ship is dangerous work! Plenty of things could wrong, leaving our young hero to languish in the murky depths of the Mediterranean Sea! 
+                </p>
+                <p>
+                    Marcus wants adventure, not an eternity in the company of Neptune! What’s the best way for him to make his choice?
+                </p>
+                <p>
+                    We’re going to use data shared by the <a target="_blank" href="https://oxrep.classics.ox.ac.uk/databases/shipwrecks_database/">Oxford Roman Economy Project</a> to dive into just this question – and by the end of it, we’ll have a rule of thumb Marcus can use to make his choice!
+                </p>
+                <p>
+                    Let’s get started!
+                </p>
+            </div>
+
+            <div style="margin: 50px 0px;">
+                <h2>The Data Marcus never had...</h2>
+                <hr />
+                <p>
+                    Sadly, for Marcus, he didn’t have access to the Oxford Roman Economy Project to help him make his decision. We do though! (but let’s not be too smug about it eh?) This dataset is treasure trove of recorded Roman shipwrecks up until AD 1500. 
+                    It includes information such as the Sea area, rough Latitude / Longitude, Estimated Tonnage of the Vessel, as well as the Trade route the vessel was believed to be part of.
+                </p>
+                <p>
+                    All good information that Marcus could ask the captain about before hopping onboard!
+                </p>
+            </div>
+            <div style="margin: 50px 0px;">
+                <h2>How to choose?</h2>
+                <hr />
+                <p>
+                    Without access to the joys of Data Science, Marcus is left with a simple option: Ask questions! 
+                </p>
+                <p>
+                    Let’s walk through some natural questions our hero might ask to help them choose their fate…
+                </p>
+            </div>
+            <div style="margin: 50px 0px;">
+                <h2>How Dangerous is this Trade Route compared to the others?</h2>
+                <hr/>
+                <p>
+                    The Oxford Roman Economy Project dataset doesn’t give us trade routes directly. Instead, it gives us the believed place of origin and the believed destination for 
+                    each shipwreck. We’ll use this to create the list trade routes by claiming a trade route is “Place of origin” – “Place of destination”. 
+                </p>
+                <p>
+                    Unfortunately for us, even the Oxford Roman Economy Project doesn’t provide us with perfect information. Not every Place of origin or Place of destination is known. As we can’t 
+                    say much about trade routes we can’t define, we cleaned those out, then visualized what was left in a nice bar chart:
+                </p>
+
+                <img src="images/shipwrecks_traderoutes.png" style="display: block; width: 90%; margin: 25px auto" />
+
+                <p>
+                    At first glance, it looks like traveling to Italy or Rome is a bad idea! While technically, that might be true – after all there are a lot of shipwrecks on those routes – it’s not 
+                    very helpful advice. Nearly every ship Marcus can choose from is coming to or leaving Rome! 
+                </p>
+                <p>
+                    Alright, knowing the trade route won’t help Marcus very much. What about knowing which seas the ship will sail in? Will that help?
+                </p>
+            </div>
+            <div style="margin: 50px 0px;">
+                <h2>On which seas does this ship sail?</h2>
+                <hr/>
+                <p>
+                    What about the various seas that surround Rome and Italy in general? Are some of those more dangerous than the others?
+                </p>
+                <p>
+                    To help Marcus’s answer this, we’ll look at the Sea area column from this dataset. Like the trade routes before it, this data is not complete. We simply don’t know the exact sea that every discovered shipwreck was in when it sank. 
+                </p>
+                <p>
+                    Still, we’ll do what we can and visualize the data we have:
+                </p>
+                <img src="images/shipwrecks_seaarea.png" style="display: block; width: 90%; margin: 25px auto" />
+                <p>
+                    Oh my! The Western Mediterranean Sea certainly appears to be a hostile work environment! Some of this could be explained by the Roman Empire having grown Westwardly at first rather than Easterly – giving more opportunities for Roman Ships 
+                    in that area. It’s also possible that the Western Mediterranean Sea is a far more popular destination than the rest of the Empire.
+                </p>
+                <p>
+                    Still – maybe Marcus should think twice about sailing to the West…
+                </p>
+            </div>
+            <div style="margin: 50px 0px;">
+                <h2>How big is your ship?</h2>
+                <hr />
+                <p>
+                    But hey, maybe Marcus doesn’t have to ask questions? What if he just decided to go by the adage… BIGGER IS BETTER!
+                </p>
+                <p>
+                    We can get a rough idea of how big the ships were by using the Estimated Tonnage column from our source dataset. Let’s look at a histogram of how these shipwrecks were distributed by size and see if we can find out if size really does matter!
+                </p>
+
+                <img src="images/shipwrecks_tonnage.png" style="display: block; width: 90%; margin: 25px auto" />
+
+                <p>
+                    Well, look at that – BIGGER IS BETTER after all. Well, for ships anyway. 
+                </p>
+                <p>
+                    Before we celebrate, lets keep in mind that the dataset only tells us what ships were found. There could easily have been 10x or more as many smaller vessels as larger ones. We can’t tell this from the dataset. 
+                </p>
+                <p>
+                    On the flip side, larger ships can be easier to control and more stable during high winds. On the whole, perhaps Marcus wouldn’t be steered wrong with the bigger is better motto.
+                </p>
+
+            </div>
+            <div style="margin: 50px 0px;">
+                <h2>What path do you take?</h2>
+                <hr />
+                <p>
+                    Alright, so we know the Western Mediterranean Sea is a potential hotspot. We know that it’s at least plausible that bigger is better. What about the routes themselves? Are there places we want to avoid? Shipwreck magnets that strike fear into the hearts of Roman Sailors?
+                </p>
+                <p>
+                    We have the rough latitude and longitude of the shipwrecks from the dataset. (Precise data is not provided to discourage folks from diving down and stealing from the wreckages) We can plot that on a scatter plot and see if any clusters present themselves.
+                </p>
+
+                <img src="images/shipwrecks_locations_clustered.png" style="display: block; width: 90%; margin: 25px auto" />
+
+                <p>
+                    Ok, ok, it’s a bunch of bluish dots on a white background – what are we really looking at? Each dot represents a single reported shipwreck for which our dataset provides location information. They’ve been slightly transparent to make clusters of shipwrecks easier to see.
+                </p>
+                <p>
+                    Alright, so there’s quite a few shipwrecks near Italy. This is expected – that’s where most of the traffic is going to be after all. We have an even looking distribution of shipwrecks in the Eastern Mediterranean Sea, and a line of death in the South of France.
+                </p>
+                <p>
+                    Something is going on there – maybe our young hero is best off avoiding it!
+                </p>
+            </div>
+            <div style="margin: 50px 0px;">
+                <h2>The Takeaway?</h2>
+                <hr/>
+                <p>
+                    As he goes out into the world and begins his nautical career, Marcus would be served by looking for the biggest ship he can find. Once on it, he may want to avoid going anywhere in the Western Mediterranean Sea – especially near the South Coast of France.
+                </p>
+                <p>
+                    This won’t guarantee his safety of course – but if safety was the only thing that mattered, Marcus would just say home and drink some wine!
+                </p>
+                <p>
+                    Fair winds Marcus, and good luck!
+                </p>
+            </div>
+
+            <div style="margin: 50px 0px;">
+                <h2>References</h2>
+                <hr />
+                <ul>
+                    <li>Strauss, J. (2013). Shipwrecks Database. Version 1.0. Accessed (date): oxrep.classics.ox.ac.uk/databases/shipwrecks_database/</li>
+                    <li><a target="_blank" href="https://www.romanempire.cloud/history?l=EN&MapType=TIMELAPSE&TimelapseBy=PERIOD">Interactive Maps and History of the Roman Empire</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        
     </body>
 </html>
